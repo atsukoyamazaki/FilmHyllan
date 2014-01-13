@@ -1,0 +1,54 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script language="javascript" type="text/javascript">
+            $(document).ready(function() {
+                findAll(1);
+            });
+
+            var listURL = "http://localhost:8080/FilmHyllan/webresources/entity.review/reviewlist/";
+
+
+            function findAll(id) {
+                console.log(listURL + id);
+                $.ajax({
+                    type: 'GET',
+                    url: listURL + id,
+                    dataType: "json", // data type of response
+                    success: function(data) {
+                        
+                        htmlpart = "<div id='postList'>";
+                        for (var no in data)
+                        {
+                            htmlpart = htmlpart + "<div id='img'><img src='http://images.amazon.com/images/P/" + data[no].film.img + ".09._PC_OU09_SCMZZZZZZZ_.jpg'>" + data[no].film.title + " " + data[no].film.director + "</div>";
+                            htmlpart = htmlpart + "<div id='title'>" + data[no].film.title + "</div>";
+                                       }
+                        htmlpart = htmlpart + "</div>";
+                        $('#postList').append(htmlpart);
+                       console.log(htmlpart);
+                       alert("tset");
+                    }
+                });
+                
+            }
+
+
+        </script>
+    </head>
+    <body>
+
+        <div id="postmiddle">
+            <h1>filmhyllan</h1>
+            <div id="postList">
+
+            </div>
+            
+    </body>
+</html>

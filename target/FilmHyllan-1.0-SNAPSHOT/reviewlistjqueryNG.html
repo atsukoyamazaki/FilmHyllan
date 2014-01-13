@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+        <script src="js/controller.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body  ng-controller="ReviewListCtrl">
+
+        <div id="postmiddle">
+            <h1>filmhyllan</h1>
+            <form method="post" action="" id="loginForm" ng-submit="doLogin()">
+
+            </form>
+
+
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>No</td>
+                            <td>CategoryId</td>
+                            <td>ItemId</td>
+                            <td>Name</td>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="reviewList in reviewLists">
+                        <tr>
+                            <td><img ng-src="http://images.amazon.com/images/P/{{reviewList.film.img}}.09._PC_OU09_SCMZZZZZZZ_.jpg"/></td>
+                            <td>{{reviewList.film.title}}</td>
+                            <td>{{reviewList.directorName}}</td>
+                            <td>{{reviewList.rating}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+                        {{reviewLists}}
+        </div>
+
+
+    </body>
+</html>

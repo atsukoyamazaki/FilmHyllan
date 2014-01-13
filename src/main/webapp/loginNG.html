@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
+
+        <script src="js/controller.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body ng-controller="LoginCtrl">
+        <div >Login</div>
+
+        <form  id="loginForm" ng-submit="submit()">
+            <input id="userName" type="text" ng-model="userName"  name='userName' />
+            <input id="password" type="password" ng-model="password" name="password" />
+            <button type="submit" id="loginButton" name='loginButton'  value="Login" >Login</button>
+        </form>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>CategoryId</td>
+                        <td>ItemId</td>
+                        <td>Name</td>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="aaa in reviewLists">
+                    <tr ng-repeat="reviewList in aaa">
+                        <td><img ng-src="http://images.amazon.com/images/P/{{reviewList.film.img}}.09._PC_OU09_SCMZZZZZZZ_.jpg"/></td>
+                        <td>{{reviewList.film.title}}</td>
+                        <td>{{reviewList.directorName}}</td>
+                        <td>{{reviewList.rating}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        {{reviewLists}}
+    </div>
+</body>
+</html>
